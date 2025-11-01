@@ -1,0 +1,19 @@
+bool isPalindrome(int x) {
+    if(x<0){
+        return false;
+    }
+    int t=x;
+    int a[33],i=0;
+    do{
+        a[i++]=t%10;
+        t/=10;
+    }while(t>0);
+    int count=i;
+    i=0;
+    while(i<count-i-1){
+        if(a[i]!=a[count-i++-1]){
+            return false;
+        }
+    }
+    return true;
+}
