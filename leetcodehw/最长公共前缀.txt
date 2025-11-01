@@ -1,0 +1,22 @@
+char* longestCommonPrefix(char** strs, int strsSize) {
+    char*rel=(char*)malloc(200*(sizeof(char)));
+    if(strsSize==1){
+        int i=-1;
+        while(strs[0][++i]!='\0'){
+            rel[i]=strs[0][i];
+        }
+        rel[i]='\0';
+        return rel;
+    }
+    int i;
+    for(i=0;1;i++){
+        for(int j=1;j<strsSize;j++){
+            if(strs[j][i]!=strs[0][i]){
+                goto done;
+            }
+        }
+        rel[i]=strs[0][i];
+    }
+    done:rel[i]='\0';
+    return rel;
+}
